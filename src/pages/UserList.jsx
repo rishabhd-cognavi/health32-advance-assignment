@@ -3,19 +3,6 @@ import { EditUserModal, UserCard } from "../modules/UserList/components";
 import { useEffect, useState } from "react";
 import "@ant-design/v5-patch-for-react-19";
 
-const avatarList = [
-  "https://api.dicebear.com/9.x/adventurer/svg?seed=Sophia",
-  "https://api.dicebear.com/9.x/adventurer/svg?seed=Ryan",
-  "https://api.dicebear.com/9.x/adventurer/svg?seed=Amaya",
-  "https://api.dicebear.com/9.x/adventurer/svg?seed=Alexander",
-  "https://api.dicebear.com/9.x/adventurer/svg?seed=Sophia",
-  "https://api.dicebear.com/9.x/adventurer/svg?seed=Easton",
-  "https://api.dicebear.com/9.x/adventurer/svg?seed=Kingston",
-  "https://api.dicebear.com/9.x/adventurer/svg?seed=Brooklynn",
-  "https://api.dicebear.com/9.x/adventurer/svg?seed=Katherine",
-  "https://api.dicebear.com/9.x/adventurer/svg?seed=Sarah",
-];
-
 export function UserList() {
   const [data, setData] = useState(null);
   const [isOpen, setisOpen] = useState(false);
@@ -32,13 +19,15 @@ export function UserList() {
         return response.json();
       })
       .then((data) => {
+        console.log(data);
+
         const formattedUsers = data.map((user) => ({
           id: user.id,
           name: user.name,
           email: user.email,
           phone: user.phone,
           website: user.website,
-          avatar: avatarList[user.id - 1],
+          username: user.username,
           isLiked: false,
         }));
         setData(formattedUsers);

@@ -1,5 +1,5 @@
 import { Button, Card, Flex, Space, Typography } from "antd";
-import { Globe, Heart, Mail, Pencil, Phone, Trash2, User } from "lucide-react";
+import { Globe, Heart, Mail, Pencil, Phone, Trash2 } from "lucide-react";
 import PropTypes from "prop-types";
 
 const { Text } = Typography;
@@ -10,13 +10,16 @@ export function UserCard({ user, handleEdit, handleDelete, handleLike }) {
       hoverable={false}
       style={{ borderRadius: 0 }}
       styles={{ body: { padding: 0 } }}>
-      <Flex vertical >
-        <Flex style={{width:"100", height:"100%", backgroundColor:"skyblue"}} justify="center" align="center">
-          {user.avatar?<img
+      <Flex vertical>
+        <Flex
+          style={{ width: "100", height: "100%", backgroundColor: "skyblue" }}
+          justify="center"
+          align="center">
+          <img
             width={200}
             height={200}
-            src={user.avatar}
-          />:<User fill="#9f9fa9" color="#9f9fa9" size={200} />}
+            src={`https://api.dicebear.com/9.x/micah/svg?seed=${user.username}&mouth=smirk,laughing,pucker`}
+          />
         </Flex>
 
         <Flex
@@ -59,16 +62,19 @@ export function UserCard({ user, handleEdit, handleDelete, handleLike }) {
         </Flex>
         <Flex
           justify="space-between"
-          style={{ paddingBlock: "0.8rem", backgroundColor: "#fafafa", height:"100%" }}>
-          <Button type="link" onClick={()=>handleLike(user)}>
+          style={{
+            paddingBlock: "0.8rem",
+            backgroundColor: "#fafafa",
+            height: "100%",
+          }}>
+          <Button type="link" onClick={() => handleLike(user)}>
             <Heart
-              fill={user.isLiked?"red":"transparent"}
-              color={user.isLiked?"red":"#9f9fa9"}
+              fill={user.isLiked ? "red" : "transparent"}
+              color={user.isLiked ? "red" : "#9f9fa9"}
               size={20}
-              
             />
           </Button>
-          <Button type="link" onClick={()=>handleEdit(user)}>
+          <Button type="link" onClick={() => handleEdit(user)}>
             <Pencil
               size={20}
               style={{
@@ -76,7 +82,7 @@ export function UserCard({ user, handleEdit, handleDelete, handleLike }) {
               }}
             />
           </Button>
-          <Button type="link" onClick={()=>handleDelete(user.id)}>
+          <Button type="link" onClick={() => handleDelete(user.id)}>
             <Trash2
               size={20}
               style={{
@@ -99,8 +105,9 @@ UserCard.propTypes = {
     website: PropTypes.string.isRequired,
     avatar: PropTypes.string.isRequired,
     isLiked: PropTypes.bool.isRequired,
+    username: PropTypes.string.isRequired,
   }).isRequired,
   handleEdit: PropTypes.func.isRequired,
   handleDelete: PropTypes.func.isRequired,
-  handleLike: PropTypes.func.isRequired
+  handleLike: PropTypes.func.isRequired,
 };
