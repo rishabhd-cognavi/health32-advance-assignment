@@ -25,7 +25,7 @@ npm run dev
 💻 Built with
 Technologies used in the project:
 
-React + Vite
-Lucide React
+React + Vite,
+Lucide React,
 Ant design
 
