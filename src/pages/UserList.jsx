@@ -19,8 +19,6 @@ export function UserList() {
         return response.json();
       })
       .then((data) => {
-        console.log(data);
-
         const formattedUsers = data.map((user) => ({
           id: user.id,
           name: user.name,
@@ -64,8 +62,6 @@ export function UserList() {
   };
 
   const handleLike = (data) => {
-    console.log(data);
-
     setData((prev) =>
       prev.map((user) =>
         user.id === data?.id ? { ...data, isLiked: !data.isLiked } : user
