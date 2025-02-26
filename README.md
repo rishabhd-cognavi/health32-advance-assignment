@@ -10,7 +10,7 @@ Currently, two official plugins are available:
 Health32-Advance-Assignment
 
 🚀 Demo
-(https://watinglist.netlify.app/)
+(https://watinglist.netlify.app/](https://67bf6badd9ea3e1a1cb0d345--health32-advance-assigment.netlify.app/)
 
 🛠️ Installation Steps:
 
