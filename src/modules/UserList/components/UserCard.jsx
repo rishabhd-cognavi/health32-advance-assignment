@@ -18,7 +18,7 @@ export function UserCard({ user, handleEdit, handleDelete, handleLike }) {
           <img
             width={200}
             height={200}
-            src={`https://api.dicebear.com/9.x/micah/svg?seed=${user.username}&mouth=smirk,laughing,pucker`}
+            src={`https://api.dicebear.com/9.x/avataaars/svg?seed=${user.username}&mouth=smile,twinkle,serious`}
           />
         </Flex>
 
